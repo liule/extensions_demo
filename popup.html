@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>URL 跟踪参数清理器</title>
+    <link rel="stylesheet" href="src/popup.css" />
+  </head>
+  <body>
+    <main>
+      <h1>URL 跟踪参数清理器</h1>
+      <p class="description">自动从打开的网页链接中删除常见跟踪参数。</p>
+      <label class="toggle-row">
+        <span>
+          <strong>启用清理</strong>
+          <small>关闭后不再修改 URL 请求。</small>
+        </span>
+        <input id="enabled" type="checkbox" role="switch" />
+      </label>
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+    <script src="src/popup.js"></script>
+  </body>
+</html>
