@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "URL 跟踪参数清理器",
+  "description": "自动移除常见营销、社交和广告跟踪 URL 参数，保持链接干净。",
+  "version": "1.0.0",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "URL 跟踪参数清理器",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "tracking_params",
+        "enabled": true,
+        "path": "rules/tracking-params.json"
+      }
+    ]
+  }
+}
