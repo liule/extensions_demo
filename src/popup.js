@@ -8,20 +8,28 @@ async function loadState() {
 }
 
 checkbox.addEventListener('change', async () => {
+  const nextEnabled = checkbox.checked;
   checkbox.disabled = true;
-  const response = await chrome.runtime.sendMessage({
-    type: 'setEnabled',
-    enabled: checkbox.checked,
-  });
-  checkbox.disabled = false;
 
-  if (!response?.ok) {
-    checkbox.checked = !checkbox.checked;
-    statusText.textContent = `设置失败：${response?.error ?? '未知错误'}`;
-    return;
+  try {
+    const response = await chrome.runtime.sendMessage({
+      type: 'setEnabled',
+      enabled: nextEnabled,
+    });
+
+    if (!response?.ok) {
+      checkbox.checked = !nextEnabled;
+      statusText.textContent = `设置失败：${response?.error ?? '未知错误'}`;
+      return;
+    }
+
+    statusText.textContent = nextEnabled ? '清理已启用。' : '清理已暂停。';
+  } catch (error) {
+    checkbox.checked = !nextEnabled;
+    statusText.textContent = `设置失败：${error.message}`;
+  } finally {
+    checkbox.disabled = false;
   }
-
-  statusText.textContent = checkbox.checked ? '清理已启用。' : '清理已暂停。';
 });
 
 loadState().catch((error) => {
