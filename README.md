@@ -31,3 +31,7 @@ docs/debug-and-publish.md     # 调试与发布流程
    `https://example.com/?utm_source=newsletter&fbclid=test&id=123`。
 
 更多调试、打包和发布步骤见 [docs/debug-and-publish.md](docs/debug-and-publish.md)。
+
+## Console 日志排查
+
+如果网页 Console 中出现 `content_main.js`、`content_guard.js`、Chrome Built-In AI `LanguageDetector` 或 Cloudflare `Just a moment...` 相关错误，请先参考 [Console 日志排查](docs/troubleshooting-console-logs.md)。本插件不注入网页 content script，通常不会产生这些日志。
