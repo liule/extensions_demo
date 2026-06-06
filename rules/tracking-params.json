@@ -70,7 +70,163 @@
       }
     },
     "condition": {
-      "regexFilter": "[?&](utm_[^=&]+|fbclid|gclid|gbraid|wbraid|dclid|msclkid|yclid|mc_cid|mc_eid|igshid|igsh|mibextid|twclid|li_fat_id|vero_id|wickedid|oly_anon_id|oly_enc_id|rb_clickid|spm|sc_[^=&]+|pk_campaign|pk_kwd|pk_keyword|mtm_[^=&]+|matomo_[^=&]+|ref|ref_src)=",
+      "regexFilter": "[?&](?:utm_[^=&]+|sc_[^=&]+|mtm_[^=&]+|matomo_[^=&]+)=",
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "removeParams": [
+              "utm_source",
+              "utm_medium",
+              "utm_campaign",
+              "utm_term",
+              "utm_content",
+              "utm_id",
+              "utm_name",
+              "utm_cid",
+              "utm_reader",
+              "utm_viz_id",
+              "utm_pubreferrer",
+              "utm_swu",
+              "fbclid",
+              "gclid",
+              "gbraid",
+              "wbraid",
+              "dclid",
+              "msclkid",
+              "yclid",
+              "mc_cid",
+              "mc_eid",
+              "igshid",
+              "igsh",
+              "mibextid",
+              "twclid",
+              "li_fat_id",
+              "vero_id",
+              "wickedid",
+              "oly_anon_id",
+              "oly_enc_id",
+              "rb_clickid",
+              "spm",
+              "sc_channel",
+              "sc_campaign",
+              "sc_content",
+              "sc_country",
+              "sc_geo",
+              "sc_medium",
+              "sc_outcome",
+              "sc_publisher",
+              "sc_segment",
+              "pk_campaign",
+              "pk_kwd",
+              "pk_keyword",
+              "mtm_campaign",
+              "mtm_source",
+              "mtm_medium",
+              "mtm_content",
+              "mtm_keyword",
+              "matomo_campaign",
+              "matomo_source",
+              "matomo_medium",
+              "matomo_content",
+              "matomo_keyword",
+              "ref",
+              "ref_src"
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "regexFilter": "[?&](?:fbclid|gclid|gbraid|wbraid|dclid|msclkid|yclid|mc_cid|mc_eid|igshid|igsh|mibextid)=",
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "removeParams": [
+              "utm_source",
+              "utm_medium",
+              "utm_campaign",
+              "utm_term",
+              "utm_content",
+              "utm_id",
+              "utm_name",
+              "utm_cid",
+              "utm_reader",
+              "utm_viz_id",
+              "utm_pubreferrer",
+              "utm_swu",
+              "fbclid",
+              "gclid",
+              "gbraid",
+              "wbraid",
+              "dclid",
+              "msclkid",
+              "yclid",
+              "mc_cid",
+              "mc_eid",
+              "igshid",
+              "igsh",
+              "mibextid",
+              "twclid",
+              "li_fat_id",
+              "vero_id",
+              "wickedid",
+              "oly_anon_id",
+              "oly_enc_id",
+              "rb_clickid",
+              "spm",
+              "sc_channel",
+              "sc_campaign",
+              "sc_content",
+              "sc_country",
+              "sc_geo",
+              "sc_medium",
+              "sc_outcome",
+              "sc_publisher",
+              "sc_segment",
+              "pk_campaign",
+              "pk_kwd",
+              "pk_keyword",
+              "mtm_campaign",
+              "mtm_source",
+              "mtm_medium",
+              "mtm_content",
+              "mtm_keyword",
+              "matomo_campaign",
+              "matomo_source",
+              "matomo_medium",
+              "matomo_content",
+              "matomo_keyword",
+              "ref",
+              "ref_src"
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "regexFilter": "[?&](?:twclid|li_fat_id|vero_id|wickedid|oly_anon_id|oly_enc_id|rb_clickid|spm|pk_campaign|pk_kwd|pk_keyword|ref|ref_src)=",
       "resourceTypes": [
         "main_frame",
         "sub_frame"
